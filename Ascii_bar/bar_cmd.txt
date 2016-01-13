@@ -1,0 +1,2 @@
+cat input.txt | awk '{n[NR]=$NF;$NF="";$0=p" + "$0;p=" |"p}1;END{for(print p;p~/\|/;print p (k>($0=0)?"|":""))for(i=k=p="";i<NR;p=p (j>0||k>0?"|":" ")(!k||$0?"_":" ")){j=k;k=n[++i]--}}'|tac
+
