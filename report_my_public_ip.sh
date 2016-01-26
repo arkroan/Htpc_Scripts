@@ -5,12 +5,20 @@
 syncfolder='/home/user/MegaSyncFolder'
 sfile='xbmc_htpc_public_ip.txt'
 
-curl 'https://api.ipify.org' > $syncfolder/$sfile
-echo " " >>  $syncfolder/$sfile
+#curl 'https://api.ipify.org' > $syncfolder/$sfile
+#echo " " >>  $syncfolder/$sfile
+
+# Get Ip
+IP=$(curl 'https://api.ipify.org')
 
 # report ports
-echo "Live Webcam:		:8090" >>  $syncfolder/$sfile
-echo "Recordings :              :8090" >>  $syncfolder/$sfile
+echo "Live Webcam Link: " >  $syncfolder/$sfile
+#curl 'https://api.ipify.org' >> $syncfolder/$sfile
+
+echo "http://$IP:8090" >>  $syncfolder/$sfile
+echo " " >>  $syncfolder/$sfile
+
+#echo "Recordings :              :8090" >>  $syncfolder/$sfile
 
 exit 0
 
