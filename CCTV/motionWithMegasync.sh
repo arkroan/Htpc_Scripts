@@ -32,6 +32,13 @@ else
     		echo "$dirD already exists but is not a directory" 1>&2
 	fi
 
+	# before start the daemon, send the IP details on the e-mail
+	# source the ip file first
+	ipfile=$(cat /home/user/MegaSyncFolder/xbmc_htpc_public_ip.txt)
+	# send the email
+	~/Scripts/sendemail.sh -s="Motion Daemon Started!" -m="$ipfile" -r=arkroan@gmail.com -cf=/home/user/Auth/gmail.conf	
+
+	# start motion
         motionStart
 fi
 
